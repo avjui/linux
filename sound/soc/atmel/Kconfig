@@ -70,6 +70,34 @@ config SND_AT91_SOC_SAM9X5_WM8731
 	  Say Y if you want to add support for audio SoC on an
 	  at91sam9x5 based board that is using WM8731 codec.
 
+config SND_AT91_SOC_HIFIBERRY_DAC
+	tristate "Support for HifiBerry DAC"
+	depends on ARCH_AT91 || COMPILE_TEST
+	depends on ATMEL_SSC
+	select SND_ATMEL_SOC_SSC_DMA
+	select SND_SOC_PCM5102A
+	help
+	  Say Y if you want to add support for audio SoC on an
+	  at91sam9x5 based board that is using PCM5102a codec.
+
+config SND_AT91_SOC_HIFIBERRY_DACPLUS
+        tristate "Support for HifiBerry DAC+"
+	depends on ARCH_AT91 || COMPILE_TEST
+	depends on ATMEL_SSC && SND_SOC_I2C_AND_SPI
+	select SND_ATMEL_SOC_SSC_DMA
+        select SND_SOC_PCM512x
+        help
+         Say Y or M if you want to add support for HifiBerry DAC+.
+
+config SND_AT91_SOC_HIFIBERRY_DACPLUSHD
+        tristate "Support for HifiBerry DAC+ HD"
+	depends on ARCH_AT91 || COMPILE_TEST
+	depends on ATMEL_SSC && SND_SOC_I2C_AND_SPI
+	select SND_ATMEL_SOC_SSC_DMA
+        select SND_SOC_PCM179X_I2C
+        help
+         Say Y or M if you want to add support for HifiBerry DAC+ HD.
+
 config SND_ATMEL_SOC_CLASSD
 	tristate "Atmel ASoC driver for boards using CLASSD"
 	depends on ARCH_AT91 || COMPILE_TEST
